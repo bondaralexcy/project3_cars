@@ -52,7 +52,8 @@ class MotoCreateSerializer(serializers.ModelSerializer):
         model = Moto
         fields = '__all__'
         validators = [TitleValidator(field='title'),
-                      serializers.UniqueTogetherValidator(fields=['title', 'description'], queryset=Moto.objects.all())]
+                      serializers.UniqueTogetherValidator(fields=['title', 'description'], queryset=Moto.objects.all())
+                      ]
 
     def create(self, validated_data):
         milage = validated_data.pop('milage')
